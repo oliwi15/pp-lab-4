@@ -12,6 +12,15 @@ public class Company {
         employees[1] = new Worker();
         employees[4] = new Worker();
 
+        int nonManagersCount = 0;
+        for (Employee employee : employees) {
+            if (!(employee instanceof Manager)) {
+                nonManagersCount++;
+            }
+        }
+
+        ((Manager) employees[0]).setNumberOfSubordinates(nonManagersCount);
+
         for (Employee employee : employees) {
             System.out.println(employee);
         }
